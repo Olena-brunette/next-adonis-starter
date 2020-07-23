@@ -1,14 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import MainLayout from '../layouts/MainLayout'
 import { Row, Col, Form, Button } from 'react-bootstrap'
-
 import api from '../api/api'
 import { routes } from '../api/routes'
 import { useAuth } from '../context/auth'
 
-export default function AuthForm({ title, route }) {
+export interface AuthProps {
+    title: string,
+    route: string
+}
 
+export default function AuthForm({ title, route }: AuthProps) {
     const { setToken } = useAuth()
+    const [errors, setErrors] = useState([])
 
     const handleFormSubmit = (e) => {
         e.preventDefault()
@@ -21,6 +25,7 @@ export default function AuthForm({ title, route }) {
                 setToken(token)
             })
             .catch((error) => {
+                setErrors(error.response.data || [])
                 console.log(error)
             })
     }
@@ -42,12 +47,14 @@ export default function AuthForm({ title, route }) {
                             <Form.Group controlId="formBasicEmail">
                                 <Form.Label>Email address</Form.Label>
                                 <Form.Control name="email" type="email" placeholder="Enter email" />
-
+                                <DisplayErrors errors={errors} fieldName="email" />
                             </Form.Group>
 
                             <Form.Group controlId="formBasicPassword">
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control name="password" type="password" placeholder="Password" />
+                                <DisplayErrors errors={errors} fieldName="password" />
+
                             </Form.Group>
                             <Form.Group controlId="formBasicCheckbox">
                                 <Form.Check type="checkbox" label="Check me out" />
@@ -63,3 +70,18 @@ export default function AuthForm({ title, route }) {
         </div>
     )
 }
+
+export interface ValidationError { field: string, message: string }
+
+interface DisplayErrors {
+    errors: ValidationError[],
+    fieldName: string
+}
+
+const DisplayErrors = ({ errors, fieldName }: DisplayErrors) => (
+    errors.filter(e => e.field === fieldName).map((e) => (
+        <p className="text-danger">
+            {e.message}
+        </p>
+    ))
+)

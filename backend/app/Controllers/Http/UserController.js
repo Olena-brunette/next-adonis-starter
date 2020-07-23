@@ -31,12 +31,13 @@ class UserController {
      */
     async login({auth, request, view, response}) {
         const {email, password} = request.only(['email', 'password']);
-        console.log({email, password})
         try {
             const user = await auth.validate(email, password, true);
             return auth.generate(user)
         } catch (error) {
-            return response.status(401).send('Invalid credentials')
+            return response.status(400).json(
+                [{field: 'password', message: 'Invalid email or password'}]
+            )
         }
 
     }

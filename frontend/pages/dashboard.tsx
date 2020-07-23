@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react'
 import MainLayout from '../layouts/MainLayout'
-import { Row, Col, Form, Button, InputGroup } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 import api from '../api/api'
 import { routes } from '../api/routes'
 
-import useSWR, { mutate } from "swr";
+import useSWR from "swr";
 import { useAuth } from '../context/auth'
 import Router from 'next/router'
 
-import { FaTrash, FaTicketAlt, FaCheck, FaUndo } from 'react-icons/fa'
 import { Todo } from '../components/Todo'
 import { AddTodoInput } from '../components/AddTodoInput'
 

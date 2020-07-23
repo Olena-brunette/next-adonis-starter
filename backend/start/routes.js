@@ -20,8 +20,8 @@ Route.get('/', () => {
   return {greeting: 'Hello world in JSON'}
 })
 
-Route.post('/auth/signup', 'UserController.signup')
-Route.post('/auth/login', 'UserController.login')
+Route.post('/auth/signup', 'UserController.signup').validator(['Signup'])
+Route.post('/auth/login', 'UserController.login').validator(['Login'])
 
 Route.get('users/me', 'UserController.me').middleware('auth')
 
