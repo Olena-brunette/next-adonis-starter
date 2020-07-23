@@ -29,12 +29,12 @@ export const Todo = ({ todo }: { todo: Todo }) => {
                 </p>
             </Col>
             <Col md="auto">
-                <Button onClick={handleDelete} variant="danger">
+                <Button onClick={handleDelete} variant="outline-danger">
                     <FaTrash />
                 </Button>
             </Col>
             <Col md="auto">
-                <Button onClick={handleComplete} variant="primary">
+                <Button onClick={handleComplete} variant="outline-primary" >
                     {todo.completed ?
                         <FaUndo /> :
                         <FaCheck />
