@@ -34,8 +34,13 @@ HASH_DRIVER=bcrypt
 
 ```
 
-3. Finally, inside the backend directory run 
+3 inside the backend directory run 
 ```
-yarn install && adonis serve --dev
+yarn install && adonis migration:run 
 ```
+4. Finally lift the server
+```
+adonis serve --dev
+```
+
 
