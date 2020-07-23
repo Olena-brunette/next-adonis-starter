@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import MainLayout from '../layouts/MainLayout'
 import { Row, Col, Form, Button } from 'react-bootstrap'
 import api from '../api/api'
-import { routes } from '../api/routes'
 import { useAuth } from '../context/auth'
 
 export interface AuthProps {
@@ -79,9 +78,11 @@ interface DisplayErrors {
 }
 
 const DisplayErrors = ({ errors, fieldName }: DisplayErrors) => (
-    errors.filter(e => e.field === fieldName).map((e) => (
-        <p className="text-danger">
-            {e.message}
-        </p>
-    ))
+    <>
+        {errors.filter(e => e.field === fieldName).map((e) => (
+            <p className="text-danger">
+                {e.message}
+            </p>
+        ))}
+    </>
 )
