@@ -1,8 +1,27 @@
-# next-adonis-starter
+<img src="./nextadonis.jpg"/>
+
+# Next.js + Adonis.js Starter Template
 
 Welcome to this starter project that uses Next.JS and Adonis.JS v4.1
 
-it demos a basic setup for local development with authentication
+it demos a basic setup for local development with authentication. 
+Each registered user then has a simple dashboard with a protected list of todo's.
+This template serves as a way to show how these two amazing platforms can work together in a two-tier way. 
+From Next.js you get 
+* Server side rendering
+* Static site generation
+* Typescript Support
+* SCSS support
+* Routing based on the file-system
+
+From Adonis.JS you get: 
+* MVC architecture (we will replace the view for our next frontend)
+* Migrations
+* Functional and Unit testing
+* E2E testing with puppeteer
+* Mailer
+* Lucid ORM
+* and much much more...
 
 ## Usage
 1. cd into the frontend directory and run 
