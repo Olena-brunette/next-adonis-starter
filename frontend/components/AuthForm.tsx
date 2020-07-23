@@ -55,9 +55,7 @@ export default function AuthForm({ title, route }: AuthProps) {
                                 <DisplayErrors errors={errors} fieldName="password" />
 
                             </Form.Group>
-                            <Form.Group controlId="formBasicCheckbox">
-                                <Form.Check type="checkbox" label="Check me out" />
-                            </Form.Group>
+
                             <Button variant="primary" type="submit" className="btn-block">
                                 Submit
                         </Button>
