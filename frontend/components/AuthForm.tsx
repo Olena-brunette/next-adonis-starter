@@ -11,7 +11,7 @@ export interface AuthProps {
 
 export default function AuthForm({ title, route }: AuthProps) {
     const { setToken } = useAuth()
-    const [errors, setErrors] = useState([])
+    const [errors, setErrors] = useState<ValidationError[]>([])
 
     const handleFormSubmit = (e) => {
         e.preventDefault()

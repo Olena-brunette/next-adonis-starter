@@ -13,7 +13,6 @@ export interface Todo {
     completed: boolean
 }
 export const Todo = ({ todo }: { todo: Todo }) => {
-
     const handleDelete = async () => {
         const { data } = await api.delete(routes.todos + `/${todo.id}`)
         mutate(routes.todos)
