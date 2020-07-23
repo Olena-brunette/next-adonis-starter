@@ -4,14 +4,13 @@ Welcome to this starter project that uses Next.JS and Adonis.JS v4.1
 
 it demos a basic setup for local development with authentication
 
-Steps to use it: 
-* cd into the frontend directory and run 
+## Usage
+1. cd into the frontend directory and run 
 ```
 yarn install && yarn dev
 ```
 
-* cd into the backend directory 
-* Create a .env file, here is a template
+2. cd into the backend directory and create a .env file, here is a template:
 ```
 HOST=127.0.0.1
 PORT=3333
@@ -35,7 +34,7 @@ HASH_DRIVER=bcrypt
 
 ```
 
-And the run 
+3. Finally, inside the backend directory run 
 ```
 yarn install && adonis serve --dev
 ```
