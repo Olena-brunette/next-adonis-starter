@@ -12,7 +12,7 @@
 const User = use('App/Models/User');
 
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} Todo */
-const Todo = use('App/Models/TOdo');
+const Todo = use('App/Models/Todo');
 
 class TodoController {
 
